@@ -1,0 +1,2 @@
+#You don't have to manually install these packages. On the first programm run you will be asked if you want to install them!
+["customtkinter", "configparser"]

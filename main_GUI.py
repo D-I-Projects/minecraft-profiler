@@ -1,4 +1,5 @@
 import customtkinter as ctk
+import prepare
 
 root = ctk.CTk()
 root.title("Better Minecraft Profiles")
@@ -33,3 +34,5 @@ button1.grid(row=1, column=0,  sticky="nsew")
 
 
 root.mainloop()
+
+
