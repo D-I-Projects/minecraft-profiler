@@ -1,4 +1,4 @@
-# Better-Minecraft-Profile-Management
+# Minecraft-Profiler
 
 A Program where you can easily manage your different mod loader profiles!
 
