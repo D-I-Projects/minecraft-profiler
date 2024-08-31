@@ -4,7 +4,6 @@ import time
 import sys
 import os
 
-# Global variable for customtkinter
 ctk = None
 
 def ensure_customtkinter():
@@ -16,7 +15,6 @@ def ensure_customtkinter():
     except ImportError:
         print("customtkinter not found. Installing customtkinter...")
         subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'customtkinter'])
-        # Restart the script after installation
         print("customtkinter installed. Restarting the program...")
         python = sys.executable
         os.execv(python, ['python'] + sys.argv)
@@ -156,6 +154,5 @@ def show_installation_window():
         print("No packages need to be installed.")     
         finish()
 
-if __name__ == "__main__":
-    show_installation_window()
+show_installation_window()
 
