@@ -7,7 +7,7 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 
 root = ctk.CTk()
-root.title("Better Minecraft Profiles")
+root.title("Minecraft Profiles")
 
 width_resulution_divisor = 4.8
 height_resulution_divisor = 3.6
