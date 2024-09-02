@@ -21,3 +21,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 Libraries
+- customtkinter (Copyright (c) 2023 Tom Schimansky/MIT License)/LICENSES-customtkinter.txt
+- configparser (Python Software Foundation License)/LICENSES-PSF.txt
+- subprocess (Python Software Foundation License)/LICENSES-PSF.txt
+- threading (Python Software Foundation License)/LICENSES-PSF.txt
+- sys (Python Software Foundation License)/LICENSES-PSF.txt
+- os (Python Software Foundation License)/LICENSES-PSF.txt
+- time (Python Software Foundation License)/LICENSES-PSF.txt
