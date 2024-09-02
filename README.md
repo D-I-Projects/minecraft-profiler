@@ -1,2 +1,2 @@
 # minecraft-profiler
-A Programm where you can easily manage you different mod loader profiles!
+A Programm where you can easily manage you different mod profiles!
