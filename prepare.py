@@ -6,6 +6,12 @@ import os
 
 ctk = None
 
+def create_config(trigger):
+    if trigger == True:
+        with open("config.ini", "w") as config:
+            config.write("[settings]\ndeveloper-mode = '0'")
+        
+
 def ensure_customtkinter():
     """Attempts to import customtkinter and installs it if necessary."""
     global ctk
@@ -81,15 +87,16 @@ def install_packages(packages, log_text_widget, progress_bar, install_window):
     progress_bar.set(1.0)
     show_finish_button(install_window)
 
-def finish(install_window=None):
+def finish(install_window=None, trigger=False):
     try:
         install_window.destroy()
     finally:
+        create_config(trigger)
         import main_GUI
         sys.exit(0)
 
 def show_finish_button(install_window):
-    finish_button = ctk.CTkButton(install_window, text="Finish", command=lambda: finish(install_window))
+    finish_button = ctk.CTkButton(install_window, text="Finish", command=lambda: finish(install_window, True))
     finish_button.grid(row=3, column=0, columnspan=2, pady=10)
 
 def start_installation(install_window):
@@ -152,7 +159,7 @@ def show_installation_window():
         install_window.mainloop()
     else:
         print("No packages need to be installed.")     
-        finish()
+        finish(False)
 
 show_installation_window()
 

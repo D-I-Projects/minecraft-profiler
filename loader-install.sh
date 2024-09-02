@@ -1,7 +1,6 @@
 #!/bin/bash
 
-install_quilt()
-{
+install_quilt() {
     mkdir installer
     cd installer
     curl -L -o quilt-installer.jar https://quiltmc.org/api/v1/download-latest-installer/java-universal
@@ -13,5 +12,11 @@ install_quilt()
     echo "Quilt installation is complete in $INSTALL_DIR!"
 }
 
+install_loader() {
+    if [ "$1" == "quilt" ]; then
+        install_quilt
+    fi
+}
 
-
+# Aufruf der Funktion mit Parameter "quilt"
+install_loader $1

@@ -36,16 +36,20 @@ for tab in ["Settings", "Manage Profiles", "Test"]:
 def switch_setting(switch_var):
     config["settings"]["developer-mode"] = str(switch_var.get())
     with open('config.ini', 'w') as configfile:
-
         config.write(configfile)
 
-button1 = ctk.CTkButton(tabview.tab("Manage Profiles"), text="Button 1", command=lambda:subprocess.Popen(["./loader-install.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True))
+button1 = ctk.CTkButton(tabview.tab("Manage Profiles"), text="Install Quilt", command=lambda:subprocess.Popen(["./loader-install.sh", "quilt"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True))
 button1.grid(row=1, column=0,  sticky="nsew")
 
-switch_var = ctk.IntVar(value=0)
+try:
+    switch_var = ctk.IntVar(value=int(config["settings"]["developer-mode"]))
+except:
+    switch_var = ctk.IntVar(value=int(config["settings"]["developer-mode"][1:-1]))
+
 
 switch = ctk.CTkSwitch(tabview.tab("Settings"), text="Developer Mode", variable=switch_var, command=lambda:switch_setting(switch_var))
-switch.pack(padx=20)
+switch.grid(row=0, column=0, padx=20, pady=10, sticky="nsew")
+
 
 
 
