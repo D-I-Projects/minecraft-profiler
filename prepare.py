@@ -7,7 +7,7 @@ import os
 ctk = None
 
 def create_config(trigger):
-    if trigger == True:
+    if trigger == True or not os.path.isfile("config.ini"):
         with open("config.ini", "w") as config:
             config.write("[settings]\ndeveloper-mode = '0'")
         

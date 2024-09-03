@@ -50,7 +50,7 @@ def load_switch_var():
         switch_var = ctk.IntVar(value=int(config["settings"]["developer-mode"][1:-1]))
     return switch_var
 
-def reload_window(event):
+def reload_window(event=None):
     root.destroy()
     os.system("python3 main.py")
 
@@ -58,8 +58,6 @@ def add_buttons():
     install_quilt_button = ctk.CTkButton(tabview.tab("Manage Profiles"), text="Install Quilt", command=lambda:subprocess.Popen(["./loader-install.sh", "quilt"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True))
     install_quilt_button.grid(row=1, column=0,  sticky="nsew")
     
-    reload_button = ctk.CTkButton(tabview.tab("Settings"), text="Reload", command=reload_window)
-    reload_button.grid(row=1, column=0,  sticky="nsew")
 
 def add_switches():
     developer_mode_switch_var = load_switch_var()
@@ -80,12 +78,14 @@ def check_tab_change():
         last_tab = selected_tab
     root.after(1, check_tab_change)
 
-root.bind("r", reload_window)
 
 check_tab_change()
 
 add_buttons()
 add_switches()
+
+if load_switch_var().get() == 1:
+    root.bind("r", reload_window)
 
 root.mainloop()
 
